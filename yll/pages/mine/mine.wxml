@@ -1,0 +1,13 @@
+<!--pages/mine/mine.wxml-->
+<view class='pages'>
+    <view class='head flex vc'>
+        <open-data type="userAvatarUrl" class="headImg"></open-data>
+        <open-data type="userNickName" class="userName"></open-data>
+    </view>
+    <view class='achievement'>
+        <view class='aHead'>
+            <view class='aHeadTit'>成就</view>
+            <view class='aHeadNav'>分享我的成就</view>
+        </view>
+    </view>
+</view>

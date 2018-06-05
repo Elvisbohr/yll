@@ -1,0 +1,23 @@
+/* pages/mine/mine.wxss */
+.head{
+    height: 226rpx;
+}
+.headImg{
+    width: 160rpx;
+    height: 160rpx;
+    border-radius: 80rpx; 
+    margin: 0 48rpx 0 40rpx;
+    overflow: hidden;
+}
+.userName{
+    font-family: 'Franklin Gothic Medium';
+    font-weight: 36px;
+    color: #212121;
+}
+.achievement{
+    margin: 0 40rpx;
+    padding: 32rpx 0;
+    border-top: 1px solid #ebebeb;
+    border-bottom: 1px solid #ebebeb;
+    overflow: hidden;
+}
