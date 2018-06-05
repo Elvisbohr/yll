@@ -21,3 +21,20 @@
     border-bottom: 1px solid #ebebeb;
     overflow: hidden;
 }
+.aHeadTit{
+  font-size: 48rpx;
+  color: #212121;
+}
+.aHeadNav{
+  font-size: 28rpx;
+  color: #ffb300;
+}
+
+.aContListTit{
+  font-size: 28rpx;
+  color: #878787;
+}
+.aContListData{
+  font-size: 48rpx;
+  color: #212121;
+}
