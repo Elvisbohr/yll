@@ -4,14 +4,14 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": false,
+		"urlCheck": true,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
 		"newFeature": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.0.9",
+	"libVersion": "2.0.8",
 	"appid": "wx539b4636c021004d",
 	"projectname": "yll",
 	"isGameTourist": false,
@@ -24,23 +24,13 @@
 			"current": -1,
 			"list": []
 		},
-		"plugin": {
-			"current": -1,
-			"list": []
-		},
 		"game": {
 			"currentL": -1,
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
-			"list": [
-				{
-					"id": -1,
-					"name": "我的",
-					"pathName": "pages/mine/mine"
-				}
-			]
+			"current": -1,
+			"list": []
 		}
 	}
 }
