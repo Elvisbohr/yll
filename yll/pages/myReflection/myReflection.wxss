@@ -1,0 +1,20 @@
+/* pages/myReflection/myReflection.wxss */
+.pages{
+    color: #212121;
+}
+.head{
+    height: 230rpx;
+}
+.uesrImg{
+    width: 160rpx;
+    height: 160rpx;
+    border-radius: 80rpx;
+    padding: 0 40rpx;
+}
+.userName{
+    font-size: 36rxp;
+}
+.title{
+    font-size: 48rpx;
+    padding-left: 40rpx;
+}

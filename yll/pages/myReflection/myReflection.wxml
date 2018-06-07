@@ -1,0 +1,16 @@
+<!--pages/myReflection/myReflection.wxml-->
+<view class='pages'>
+    <view class='head flex vc'>
+        <image class='uesrImg' src='../../images/use.png'></image>
+        <view class='userName'>用户姓名</view>
+    </view>
+    <view class='Main'>
+        <view class='title'>成就</view>
+        <view class='msg'>
+            <view class='msgList'>
+                <view class='listName'></view>
+                <view class='listData'></view>
+            </view>
+        </view>
+    </view>
+</view>

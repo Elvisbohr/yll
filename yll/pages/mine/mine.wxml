@@ -1,28 +1,42 @@
 <!--pages/mine/mine.wxml-->
 <view class='pages'>
-  <view class='head flex vc'>
-    <open-data type="userAvatarUrl" class="headImg"></open-data>
-    <open-data type="userNickName" class="userName"></open-data>
-  </view>
-  <view class='achievement'>
-    <view class='aHead flex vc hb'>
-      <view class='aHeadTit'>成就</view>
-      <view class='aHeadNav'>分享我的成就 ></view>
+    <view class='head flex vc'>
+        <open-data type="userAvatarUrl" class="headImg"></open-data>
+        <open-data type="userNickName" class="userName"></open-data>
     </view>
+    <view class='achievement'>
+        <view class='aHead flex vc hb'>
+            <view class='aHeadTit'>成就</view>
+            <navigator url='../myReflection/myReflection' class='aHeadNav'>分享我的成就 ></navigator>
+        </view>
 
-    <view class='aCont flex vc'>
-      <view class='aContList'>
-        <view class='aContListTit'>总场数</view>
-        <view class='aContListData'>200</view>
-      </view>
-      <view class='aContList'>
-        <view class='aContListTit'>胜率</view>
-        <view class='aContListData'>60%</view>
-      </view>
-      <view class='aContList'>
-        <view class='aContListTit'>排名</view>
-        <view class='aContListData'>200+</view>
-      </view>
+        <view class='aCont flex vc'>
+            <view class='aContList aContListM'>
+                <view class='aContListTit'>总场数</view>
+                <view class='aContListData'>200</view>
+            </view>
+            <view class='aContList aContListM'>
+                <view class='aContListTit'>胜率</view>
+                <view class='aContListData'>60%</view>
+            </view>
+            <view class='aContList'>
+                <view class='aContListTit'>排名</view>
+                <view class='aContListData'>200+</view>
+            </view>
+        </view>
     </view>
-  </view>
+    <view class='mineNav'>
+        <navigator class='mineNavList flex vc'>
+            <image class='meListIcon' src='../../images/meNavIcon1.png'></image>
+            <view>历史比赛</view>
+        </navigator>
+        <navigator class='mineNavList flex vc'>
+            <image class='meListIcon' src='../../images/meNavIcon2.png'></image>
+            <view class='relative'>我的消息 <view class='badge'></view></view>
+        </navigator>
+        <navigator class='mineNavList flex vc'>
+            <image class='meListIcon' src='../../images/meNavIcon3.png'></image>
+            <view>反馈</view>
+        </navigator>
+    </view>
 </view>

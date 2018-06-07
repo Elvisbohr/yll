@@ -33,8 +33,34 @@
 .aContListTit{
   font-size: 28rpx;
   color: #878787;
+  margin:40rpx 0 24rpx 0;
 }
 .aContListData{
   font-size: 48rpx;
   color: #212121;
+}
+.aContListM{
+    margin-right: 140rpx;
+}
+.mineNav{
+    margin: 0 40rpx;
+    overflow: hidden;
+}
+.mineNavList{
+    border-bottom: 1px solid #ebebeb;
+    height: 100rpx;
+}
+.meListIcon{
+    width: 48rpx;
+    height: 48rpx;
+    margin-right: 48rpx;
+}
+.badge{
+    width: 16rpx;
+    height: 16rpx;
+    border-radius: 8rpx;
+    position: absolute;
+    top: 0;
+    right: -16rpx;
+    background: #ff0000;
 }
