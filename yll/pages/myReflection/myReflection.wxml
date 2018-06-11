@@ -6,11 +6,20 @@
     </view>
     <view class='Main'>
         <view class='title'>成就</view>
-        <view class='msg'>
-            <view class='msgList'>
-                <view class='listName'></view>
-                <view class='listData'></view>
-            </view>
+        <view class='msg flex vc hc'>
+            <view class='msgList flex vc hc column'>
+                <view class='listName'>总场数</view>
+                <view class='listData'>200</view>
+            </view>  
+            <view class='msgList flex vc hc column'>
+                <view class='listName'>胜率</view>
+                <view class='listData'>99%</view>
+            </view> 
+            <view class='msgList flex vc hc column'>
+                <view class='listName'>排名</view>
+                <view class='listData'>200+</view>
+            </view>  
         </view>
     </view>
+    <button class='fxbtn'>分享成就</button>
 </view>

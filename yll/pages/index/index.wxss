@@ -7,10 +7,10 @@
     right: 0;
     top: 46rpx;
     padding: 0 30rpx 0 48rpx;
-    height: 54rpx;
+    height: 60rpx;
     line-height: 54rpx;
     font-size: 24rpx;
-    border: 1px solid #878787;
+    border: 1px solid #d8d8d8;
     border-right: none;
     border-radius: 27rpx 0 0 27rpx;
     width: 250rpx;

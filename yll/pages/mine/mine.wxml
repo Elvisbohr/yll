@@ -26,11 +26,11 @@
         </view>
     </view>
     <view class='mineNav'>
-        <navigator class='mineNavList flex vc'>
+        <navigator url='../historyMatch/historyMatch' class='mineNavList flex vc'>
             <image class='meListIcon' src='../../images/meNavIcon1.png'></image>
             <view>历史比赛</view>
         </navigator>
-        <navigator class='mineNavList flex vc'>
+        <navigator url='../myMessage/myMessage' class='mineNavList flex vc'>
             <image class='meListIcon' src='../../images/meNavIcon2.png'></image>
             <view class='relative'>我的消息 <view class='badge'></view></view>
         </navigator>

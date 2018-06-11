@@ -1,0 +1,43 @@
+/* pages/historyMatch/historyMatch.wxss */
+.pages{
+    color: #212121;
+    overflow-x: hidden;
+}
+.main{
+  margin: 0 40rpx;
+}
+.list{
+  height: 152rpx;
+  border-bottom: 1px solid #ebebeb;
+}
+.vs{
+  font-size: 32rpx;
+}
+.userImg{
+  width: 110rpx;
+  height: 110rpx;
+  border-radius: 55rpx;
+  margin-left: 24rpx;
+}
+.xq{
+  margin-left: 40rpx;
+}
+.name{
+  font-size: 32rpx;
+}
+.time{
+  font-size: 26rpx;
+  color: #878787;
+  margin-top: 24rpx;
+}
+.result{
+  font-size: 48rpx;
+  font-weight: bold;
+  margin-left: 110rpx;
+}
+.s{
+  color: #ff5974;
+}
+.f{
+  color: #3333ff;
+}

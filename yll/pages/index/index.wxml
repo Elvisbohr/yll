@@ -1,7 +1,7 @@
 <!--index.wxml-->
 <view class='pages'>
     <view class='box'>
-    <view class='inform'>待确认的比赛 <view class='d'></view></view>
+    <navigator url='../myMessage/myMessage' class='inform'>待确认的比赛 <view class='d'></view></navigator>
     <view class='initiator'>
         <image class='inImg' src='../../images/initiator.png'></image>
         <view>我是发起人，由我来计分</view>

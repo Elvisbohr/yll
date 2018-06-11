@@ -1,0 +1,58 @@
+/* pages/myMessage/myMessage.wxss */
+/* pages/historyMatch/historyMatch.wxss */
+.pages{
+    color: #212121;
+    overflow-x: hidden;
+}
+.main{
+  margin: 0 40rpx;
+}
+.list{
+  height: 152rpx;
+  border-bottom: 1px solid #ebebeb;
+}
+
+.userImg{
+  width: 110rpx;
+  height: 110rpx;
+  border-radius: 55rpx;
+}
+.xq{
+  margin-left: 36rpx;
+}
+.user{
+  position: relative;
+}
+.noread{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 16rpx;
+  height: 16rpx;
+  background: #ff0000;
+  border-radius: 8rpx;
+}
+.name{
+  font-size: 32rpx;
+}
+.new{
+  color: #878787;
+  font-size: 26rpx;
+  margin-top: 10rpx;
+}
+.time{
+  font-size: 26rpx;
+  color: #878787;
+  margin-top: 24rpx;
+}
+.result{
+  font-size: 48rpx;
+  font-weight: bold;
+  margin-left: 110rpx;
+}
+.s{
+  color: #ff5974;
+}
+.f{
+  color: #3333ff;
+}
