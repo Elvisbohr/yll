@@ -5,6 +5,8 @@
     "pages/myReflection/myReflection",
     "pages/historyMatch/historyMatch",
     "pages/myMessage/myMessage",
+    "pages/belnningGame/belnningGame",
+    "pages/resultGame/resultGame",
     "pages/logs/logs"
   ],
   "tabBar": {

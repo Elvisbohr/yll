@@ -1,5 +1,7 @@
-index ============>首页1
+index ============>首页
 mine  ============>我的
 myReflection ============>我的成就
 historyMatch============>历史比赛
 myMessage============>我的消息
+belnningGame============>开始比赛
+resultGame============>比赛结果

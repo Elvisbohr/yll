@@ -1,0 +1,38 @@
+<!--pages/belnningGame/belnningGame.wxml-->
+<view class='pages'>
+    <view class='header flex vc hc'>
+        <view class='user'>
+            <image class='userImg' src='../../images/use.png'></image>
+            <view>我的姓名</view>
+        </view>
+        <image class='vs' mode='widthFix' src='../../images/vs.png'></image>        
+        <view wx:if='{{rival}}' class='user'>
+            <image class='userImg' src='../../images/use.png'></image>
+            <view>对手姓名</view>
+        </view>
+        <view wx:else class='user'>
+            <image class='userImg' src='../../images/QR.png'></image>
+            <view>扫一扫</view>
+        </view>
+    </view>
+    <view class='main'>
+        <block wx:for="{{session}}" wx:key="i">
+        <view class='list flex vc hc'>
+            <view class='session'>第{{index+1}}场</view>
+            <view class='item'>
+                <input wx:if="{{item.me == ''}}" maxlength="2" type="number" bindblur="meData"></input>
+                <view wx:else>{{item.me}}</view>
+                <image wx:if="{{item.me<item.enemy}}" src='../../images/win.png' class='win'></image>
+            </view>
+            <view class='z'>:</view>
+            <view class='item'>
+                <input wx:if="{{item.enemy == ''}}"  maxlength="2" type="number" value='{{item.enemy}}' bindblur="enemyData"></input>
+                <view wx:else>{{item.enemy}}</view>
+                <image wx:if="{{item.me>item.enemy}}" src='../../images/win.png' class='win'></image>
+            </view>
+        </view>
+        </block>
+        <image wx:if="{{session.length < 3}}" class='add' src='../../images/add.png' bindtap='add'></image>
+    </view>
+    <button class='endGame'>结束比赛</button>
+</view>

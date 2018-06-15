@@ -33,7 +33,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
+			"current": 4,
 			"list": [
 				{
 					"id": -1,
@@ -58,6 +58,11 @@
 					"name": "我的消息",
 					"pathName": "pages/myMessage/myMessage",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "发起比赛",
+					"pathName": "pages/belnningGame/belnningGame"
 				}
 			]
 		}
