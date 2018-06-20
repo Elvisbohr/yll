@@ -2,7 +2,7 @@
 <view class='pages'>
   <view class='main'>
     <!-- <block wx:for=""> -->
-    <view class='list flex vc hb'>
+    <navigator url='../affirm/affirm' class='list flex vc hb'>
       <view class='left flex vc'>
         <view class='user'>
           <image class='userImg' src='../../images/use.png'></image>
@@ -14,7 +14,7 @@
         </view>
       </view>
       <view class='time'>05/04 17:11</view>
-    </view>
+    </navigator>
     <!-- <block> -->
   </view>
 </view>

@@ -1,14 +1,20 @@
 <!--index.wxml-->
 <view class='pages'>
     <view class='box'>
-    <navigator url='../myMessage/myMessage' class='inform'>待确认的比赛 <view class='d'></view></navigator>
-    <view class='initiator'>
-        <image class='inImg' src='../../images/initiator.png'></image>
-        <view>我是发起人，由我来计分</view>
+        <navigator url='../myMessage/myMessage' class='inform'>待确认的比赛
+            <view class='d'></view>
+        </navigator>
+        <view class='initiator'>
+            <image bindtap='initiate' class='inImg' src='../../images/initiator.png'></image>
+            <view>我是发起人，由我来计分</view>
+        </view>
+        <view class='invitee'>
+            <image bindtap='invitee' wx:if="{{invitee}}" class='inImg' src='{{inviteeImg}}'></image>
+            <image bindtap='invitee' wx:else class='inImg' src='../../images/invitee.png'></image>
+            <view>我是被邀请人，像对方展示二维码</view>
+        </view>
     </view>
-    <view class='invitee'>
-        <image class='inImg' src='../../images/invitee.png'></image>
-        <view>我是被邀请人，像对方展示二维码</view>
-    </view>
+    <view class='v-modal' wx:if="{{!user}}">
+        <button class='user' open-type='getUserInfo' bindgetuserinfo='getuserinfo'>点击授权</button>
     </view>
 </view>

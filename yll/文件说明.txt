@@ -5,3 +5,5 @@ historyMatch============>历史比赛
 myMessage============>我的消息
 belnningGame============>开始比赛
 resultGame============>比赛结果
+affirm      确认比赛
+result      比赛结果

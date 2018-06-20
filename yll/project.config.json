@@ -12,7 +12,7 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.0.9",
-	"appid": "wx539b4636c021004d",
+	"appid": "wx18cf78bea94db398",
 	"projectname": "%E7%BE%BD%E4%B9%90%E4%B9%90",
 	"isGameTourist": false,
 	"condition": {
@@ -33,7 +33,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 4,
+			"current": -1,
 			"list": [
 				{
 					"id": -1,
@@ -62,7 +62,20 @@
 				{
 					"id": -1,
 					"name": "发起比赛",
-					"pathName": "pages/belnningGame/belnningGame"
+					"pathName": "pages/belnningGame/belnningGame",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "确认比赛",
+					"pathName": "pages/affirm/affirm",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "比赛结果",
+					"pathName": "pages/result/result",
+					"query": ""
 				}
 			]
 		}

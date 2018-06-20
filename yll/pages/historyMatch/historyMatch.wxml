@@ -1,19 +1,19 @@
 <!--pages/historyMatch/historyMatch.wxml-->
 <view class='pages'>
-  <view class='main'>
-    <!-- <block wx:for=""> -->
-      <view class='list flex vc'>
-        <view class='vs'>VS</view>
-        <image class='userImg' src='../../images/use.png'></image>
-        <view class='xq'>
-          <view class='name'>对手血魔</view>
-          <view class='time'>2018.05.04 17:11</view>
-        </view>
-        <view class='result'>
-          <view wx:if="{{result}}" class='s'>胜</view>
-          <view wx:if="{{!result}}" class='f'>败</view>
-        </view>
-      </view>
-    <!-- <block> -->
-  </view>
+    <view class='main'>
+        <!-- <block wx:for=""> -->
+        <navigator url='/pages/result/result?id={{id}}' class='list flex vc'>
+            <view class='vs'>VS</view>
+            <image class='userImg' src='../../images/use.png'></image>
+            <view class='xq'>
+                <view class='name'>对手血魔</view>
+                <view class='time'>2018.05.04 17:11</view>
+            </view>
+            <view class='result'>
+                <view wx:if="{{result}}" class='s'>胜</view>
+                <view wx:if="{{!result}}" class='f'>败</view>
+            </view>
+        </navigator>
+        <!-- <block> -->
+    </view>
 </view>

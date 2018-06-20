@@ -1,0 +1,36 @@
+<!--pages/result/result.wxml-->
+<!--pages/affirm/affirm.wxml-->
+<view class='pages'>
+    <view class='time'>2018.05.06 12:12</view>
+    <view class='header flex vc hc'>
+        <view class='user'>
+            <image class='userImg' src='../../images/use.png'></image>
+            <view class='userName'>我的姓名</view>
+            <navigator url='../myReflection/myReflection' class='look'>查看成就 ></navigator>
+        </view>
+        <image class='vs' mode='widthFix' src='../../images/vs.png'></image>        
+        <view class='user'>
+            <image class='userImg' src='../../images/use.png'></image>
+            <view class='userName'>对手姓名</view>
+            <navigator url='../myReflection/myReflection' class='look'>查看成就 ></navigator>
+        </view>       
+    </view>
+    <view class='main'>
+        <block wx:for="{{session}}" wx:key="i">
+        <view class='list flex vc hc'>
+            <view class='session'>第{{index+1}}场</view>
+            <view class='item'>
+                <view >{{item.me}}</view>
+                <image wx:if="{{item.me > item.enemy}}" src='../../images/win.png' class='win'></image>
+            </view>
+            <view class='z'>:</view>
+            <view class='item'>
+                <view >{{item.enemy}}</view>
+                <image wx:if="{{item.me < item.enemy}}" src='../../images/win.png' class='win'></image>
+            </view>
+        </view>
+        </block>
+    </view>
+    <button class='endGame' open-type='share' bindtap='endGame'>分享这场比赛</button>
+</view>
+

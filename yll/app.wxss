@@ -131,14 +131,14 @@ image {
 
 /* 遮罩层 */
 
-.mask {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100% !important;
-  height: 100%;
-  background: #000;
-  opacity: 0.5;
+.v-modal {
+    position: fixed;
+    z-index: 2042;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .5);
 }
 
 textarea {

@@ -1,32 +1,19 @@
-// pages/myMessage/myMessage.js
-const app = getApp()
+// pages/result/result.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+      session: [{ "me": 21, "enemy": 3 }, { "me": 22, "enemy": 1 }, { "me": 3, "enemy": 23 }]
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-      app.getApiData({
-          url: '/my/message',
-          method: 'POST',
-          data: {
-              id: options.id
-          },
-          header: 'application/x-www-form-urlencoded',
-          success: (response) => {
-              wx.hideLoading();
-              this.setData({
-                  message: response.data
-              })
-          }
-      })
+  
   },
 
   /**

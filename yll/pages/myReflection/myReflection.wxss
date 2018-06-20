@@ -9,7 +9,7 @@
     width: 160rpx;
     height: 160rpx;
     border-radius: 80rpx;
-    padding: 0 40rpx;
+    margin: 0 40rpx;
 }
 .userName{
     font-size: 36rxp;

@@ -7,6 +7,8 @@
     "pages/myMessage/myMessage",
     "pages/belnningGame/belnningGame",
     "pages/resultGame/resultGame",
+    "pages/affirm/affirm",
+    "pages/result/result",
     "pages/logs/logs"
   ],
   "tabBar": {

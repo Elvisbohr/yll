@@ -1,25 +1,25 @@
 <!--pages/myReflection/myReflection.wxml-->
 <view class='pages'>
     <view class='head flex vc'>
-        <image class='uesrImg' src='../../images/use.png'></image>
-        <view class='userName'>用户姓名</view>
+        <image class='uesrImg' src='{{achievement.img}}'></image>
+        <view class='userName'>{{achievement.name}}</view>
     </view>
     <view class='Main'>
         <view class='title'>成就</view>
         <view class='msg flex vc hc'>
             <view class='msgList flex vc hc column'>
                 <view class='listName'>总场数</view>
-                <view class='listData'>200</view>
+                <view class='listData'>{{achievement.wins}}</view>
             </view>  
             <view class='msgList flex vc hc column'>
                 <view class='listName'>胜率</view>
-                <view class='listData'>99%</view>
+                <view class='listData'>{{achievement.rate}}%</view>
             </view> 
             <view class='msgList flex vc hc column'>
                 <view class='listName'>排名</view>
-                <view class='listData'>200+</view>
+                <view class='listData'>{{achievement.rank}}</view>
             </view>  
         </view>
     </view>
-    <button class='fxbtn'>分享成就</button>
+    <button class='fxbtn'  open-type='share' >分享成就</button>
 </view>

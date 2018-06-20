@@ -11,7 +11,7 @@
 }
 .userName{
     font-family: 'Franklin Gothic Medium';
-    font-weight: 36px;
+    font-size: 36rpx;
     color: #212121;
 }
 .achievement{
