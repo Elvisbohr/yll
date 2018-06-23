@@ -34,13 +34,15 @@ Page({
         })
     },
     onShareAppMessage: res => {
+        console.log('ads',res)
+        let id = res.target.dataset.id 
         if (res.from === 'button') {
             // 来自页面内转发按钮
             console.log('asda', res.target)
         }
         return {
             title: '我的成就',
-            path: '/pages/myReflection/myReflection?id=' + this.data.id
+            path: '/pages/myReflection/myReflection?id='+id
         }
     },
     /**

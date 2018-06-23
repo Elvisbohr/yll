@@ -22,7 +22,7 @@ Page({
         app.getApiData({
             url: '/my/achievement',
             method: 'POST',
-            data: { id: app.globalData.member.id, openId: app.globalData.openid},
+            data: { id: app.globalData.member.id, openId: app.globalData.openId},
             header: 'application/x-www-form-urlencoded',
             success: (res) => {
                 if (res.status === 200) {

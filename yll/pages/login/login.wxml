@@ -1,0 +1,6 @@
+<!--pages/login/login.wxml-->
+<view class='pages'>
+<view class='v-modal' >
+        <button class='user' open-type='getUserInfo' bindgetuserinfo='getuserinfo'>点击授权</button>
+    </view>
+</view>

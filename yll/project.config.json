@@ -42,22 +42,22 @@
 					"query": ""
 				},
 				{
-					"id": -1,
+					"id": 1,
 					"name": "我的成就",
 					"pathName": "pages/myReflection/myReflection",
-					"query": ""
+					"query": "id=4"
 				},
 				{
-					"id": -1,
+					"id": 2,
 					"name": "历史比赛",
 					"pathName": "pages/historyMatch/historyMatch",
-					"query": ""
+					"query": "id=4"
 				},
 				{
-					"id": -1,
+					"id": 3,
 					"name": "我的消息",
 					"pathName": "pages/myMessage/myMessage",
-					"query": ""
+					"query": "id=4"
 				},
 				{
 					"id": -1,
@@ -66,16 +66,22 @@
 					"query": ""
 				},
 				{
-					"id": -1,
+					"id": 5,
 					"name": "确认比赛",
 					"pathName": "pages/affirm/affirm",
-					"query": ""
+					"query": "id=12"
 				},
 				{
 					"id": -1,
 					"name": "比赛结果",
 					"pathName": "pages/result/result",
 					"query": ""
+				},
+				{
+					"id": 7,
+					"name": "确认比赛",
+					"pathName": "pages/resultGame/resultGame",
+					"query": "id=12"
 				}
 			]
 		}

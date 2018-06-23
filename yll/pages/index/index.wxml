@@ -1,7 +1,7 @@
 <!--index.wxml-->
 <view class='pages'>
     <view class='box'>
-        <navigator url='../myMessage/myMessage' class='inform'>待确认的比赛
+        <navigator url='../myMessage/myMessage?id={{member.id}}' class='inform'>待确认的比赛
             <view class='d'></view>
         </navigator>
         <view class='initiator'>
@@ -14,7 +14,5 @@
             <view>我是被邀请人，像对方展示二维码</view>
         </view>
     </view>
-    <view class='v-modal' wx:if="{{!user}}">
-        <button class='user' open-type='getUserInfo' bindgetuserinfo='getuserinfo'>点击授权</button>
-    </view>
+    
 </view>

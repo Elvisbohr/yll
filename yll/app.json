@@ -9,6 +9,8 @@
     "pages/resultGame/resultGame",
     "pages/affirm/affirm",
     "pages/result/result",
+    "pages/login/login",
+    "pages/text/text",
     "pages/logs/logs"
   ],
   "tabBar": {

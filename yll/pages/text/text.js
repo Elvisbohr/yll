@@ -1,38 +1,25 @@
-// pages/result/result.js
-const app = getApp()
+// pages/text/text.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+  
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-      let that = this
-      app.getApiData({
-          url: '/my/history/detail',
-          method: 'POST',
-          data: { id: options.id },
-          header: 'application/x-www-form-urlencoded',
-          success: (response) => {
-              wx.hideLoading();
-              this.setData({
-                  achievement: response.data
-              })
-          }
-      })
-      wx.getStorage({
-          key: 'openid',
+      wx.request({
+          url: 'https://route.showapi.com/341-1?showapi_appid=67035&showapi_sign=053ebe705d85472eb53284f8835a69e3&page=1&maxResult=10%20', //仅为示例，并非真实的接口地址
+          data: {},
+          header: {
+              'content-type': 'application/json' // 默认值
+          },
           success: function (res) {
               console.log(res.data)
-              that.setData({
-                  member: res.data.member,
-              })
           }
       })
   },
@@ -82,17 +69,7 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage:  (res)=> {
-      let id = res.target.dataset.id
-      if (res.from === 'button') {
-          // 来自页面内转发按钮
-          console.log(res.target)
-         
-      }
-      return {
-          title: '自定义转发标题',
-          path: '/pages/result/result?id='+id
-      }
+  onShareAppMessage: function () {
   
   }
 })

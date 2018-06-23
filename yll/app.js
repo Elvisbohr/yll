@@ -16,44 +16,55 @@ App({
             }
         })
         //获取openid
-        let log = wx.getStorage({
-            key:'openid',
-            success: function (res) {
-                that.globalData.openid = res.data.openId;
-                that.globalData.has = res.data.has;
-                that.globalData.member = res.data.member;
-            },
-            fail: function (res) {
-                console.log('首次登入')
-                wx.login({
+        // let log = wx.getStorage({
+        //     key:'openid',
+        //     success: function (res) {
+        //         that.globalData.openid = res.data.openId;
+        //         that.globalData.has = res.data.has;
+        //         that.globalData.member = res.data.member;
+        //     },
+        //     fail: function (res) {
+                
+        //     }   
+        // })
+        wx.login({
+            success: res => {
+                console.log(res)
+                // 发送 res.code 到后台换取 openId, sessionKey, unionId
+                wx.request({
+                    url: that.globalData.apiUrl + '/api/client/info',
+                    method: 'POST',
+                    data: {
+                        jsCode: res.code,
+                    },
+                    header: { "content-type": 'application/x-www-form-urlencoded' },
                     success: res => {
-                        console.log(res)
-                        // 发送 res.code 到后台换取 openId, sessionKey, unionId
-                        wx.request({
-                            url: that.globalData.apiUrl + '/api/client/info',
+                        console.log(res);
+                        var user = res.data;
+                        console.log('获取openid', res.data.data);
+                        that.globalData.openId = res.data.data.openId   //全局储存openId 
+                        that.globalData.has = res.data.data.has;
+                        that.globalData.member = res.data.data.member;   //用户基本信息
+                        wx.setStorageSync('openid', res.data.data);//本地存储userID  
+                        // 用户二维码
+                        this.getApiData({
+                            url: '/member/show',
                             method: 'POST',
-                            data: {
-                                jsCode: res.code,
-                            },
-                            header: { "content-type": 'application/x-www-form-urlencoded' },
-                            success: res => {
-                                console.log(res);
-                                var user = res.data;
-                                console.log('获取openid', res.data.data);
-                                that.globalData.openId = res.data.data.openId   //全局储存openId 
-                                that.globalData.has = res.data.data.has;
-                                that.globalData.member = res.data.data.member;   //用户基本信息
-                                wx.setStorageSync('openid', res.data.data);//本地存储userID  
-                            },
-                            fail: function (res) {
-                                console.log('openId获取失败', res);
+                            data: { openId	: res.data.data.openId},
+                            header: 'application/x-www-form-urlencoded',
+                            success: (response) => {
+                                wx.hideLoading();
+                                console.log('二维码', response)
+                                that.globalData.inviteeImg = response.data
                             }
                         })
+                    },
+                    fail: function (res) {
+                        console.log('openId获取失败', res);
                     }
-                });
-            }   
-        })
-       
+                })
+            }
+        });
        
     },
     //浮窗电话

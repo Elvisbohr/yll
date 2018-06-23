@@ -1,20 +1,20 @@
-<!--pages/myMessage/myMessage.wxml-->
+<!--pages/myitem/myitem.wxml-->
 <view class='pages'>
-  <view class='main'>
-    <!-- <block wx:for=""> -->
-    <navigator url='../affirm/affirm' class='list flex vc hb'>
-      <view class='left flex vc'>
-        <view class='user'>
-          <image class='userImg' src='../../images/use.png'></image>
-          <view class='noread'></view>
-        </view>
-        <view class='xq'>
-          <view class='name'>对手血魔</view>
-          <view class='new'>向您发送一条确认消息</view>
-        </view>
-      </view>
-      <view class='time'>05/04 17:11</view>
-    </navigator>
-    <!-- <block> -->
-  </view>
+    <view class='main'>
+        <block  wx:for="{{message}}">
+            <navigator url='../affirm/affirm?id={{item.id}}' bindtap='mesNav' data-id='{{item.id}}' class='list flex vc hb'>
+                <view class='left flex vc'>
+                    <view class='user'>
+                        <image class='userImg' src='{{item.rivalImg}}'></image>
+                        <view wx:if="{{status == 2}}" class='noread'></view>
+                    </view>
+                    <view class='xq'>
+                        <view class='name'>{{item.rivalNickName}}</view>
+                        <view class='new'>向您发送一条确认消息</view>
+                    </view>
+                </view>
+                <view class='time'>{{item.playTime}}</view>
+            </navigator>
+        </block>
+    </view>
 </view>

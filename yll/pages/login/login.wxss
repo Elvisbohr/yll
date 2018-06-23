@@ -1,0 +1,14 @@
+/* pages/login/login.wxss */
+.user{
+    width: 260rpx;
+    height: 260rpx;
+    line-height: 260rpx;
+    border-radius: 130rpx; 
+    color: #fff;
+    background: #fdd835;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 2888;
+    transform: translate(-50%,-50%)
+}

@@ -4,6 +4,10 @@ Page({
     data: {
         rival: false, //是否对手进入
         noMore: true, //是否有下一场
+        e: '',
+        enemy: '',
+        mewin: 0, //我的总胜场数
+        enwin: 0, //对手总胜场数
         session: [{
             me: '',
             enemy: ''
@@ -19,16 +23,19 @@ Page({
         member.name = options.name;
         member.img = options.img;
         this.setData({
-            member : member
+            member: member
         })
     },
     //记录我自己输入的数据
     meData(e) {
-        console.log('me', e.detail.value)
         let me = parseInt(e.detail.value)
         this.setData({
             me: me,
         })
+        console.log(this.data.enemy == '');
+        if (this.data.enemy != '') {
+            this.getResult()
+        }
     },
     //记录对手输入的数据
     enemyData(e) {
@@ -36,75 +43,18 @@ Page({
         let enemy = parseInt(e.detail.value)
         this.setData({
             enemy: enemy,
-        })
-    },
-    //点击+添加到数组里
-    add() {
-        let that = this,
-            me = this.data.me,
-            enemy = this.data.enemy;
-        if (parseInt(me) > 21 || parseInt(enemy) > 21) {
-            if (Math.abs(parseInt(me) - parseInt(enemy)) != 2) {
-                console.log("分数不符合规则,相差超2");
-            } else {
-                console.log("正确");
-                that.addData();
-            }
-        } else {
-            if (parseInt(me) == 21 || parseInt(enemy) == 21) {
-                if (parseInt(me) == parseInt(enemy)) {
-                    console.log("分数不符合规则,两人相等");
-                } else {
-                    console.log("正确");
-                    that.addData();
-                }
-            } else {
-                console.log("分数不符合规则");
-            }
+        });
+        console.log('对手数据', this.data.me)
+        if (this.data.me != '') {
+            this.getResult()
         }
 
-        // if (me > 20 || enemy > 20) {
-        //     if (parseInt(me - enemy) > 2 ||parseInt(enemy - me) > 2){
-        //         session[i].me = me
-        //         console.log('i', i)
-        //         session[i].enemy = enemy
-        //         if (i >= 2) {
-        //             console.log('超过3场')
-        //             if (i === 2) {
-        //                 this.setData({
-        //                     noMore: false
-        //                 })
-        //             }
-        //         } else {
-        //             console.log('未超过3场')
-        //             session.push({
-        //                 me: '',
-        //                 enemy: ''
-        //             })
-        //         }
-        //         this.setData({
-        //             session: session,
-        //             me: '',
-        //             enemy: ''
-        //         })
-        //     }else{
-        //         console.log('分数相差未到2')
-        //         // this.setData({
-        //         //     me: '',
-        //         //     enemy: ''
-        //         // })
-
-        //     }          
-        // }else{
-        //     console.log('分数不正确未超过21分')
-        // }
     },
-    //添加方法
-    addData() {
-        let session = this.data.session,
+    //点击+添加新数组
+    add() {
+        let isNext = this.data.isNext,
+        session = this.data.session,
             i = session.length - 1;
-        session[i].me = this.data.me
-        session[i].enemy = this.data.enemy
         if (i >= 2) {
             console.log('超过3场')
             if (i === 2) {
@@ -125,25 +75,38 @@ Page({
             enemy: ''
         })
     },
+
     //结束比赛
     endGame() {
-        const that = this
+        const that = this;
         wx.showModal({
             title: '比赛结束',
             content: '结束比赛并发送比分待对手确认',
             success: function(res) {
                 if (res.confirm) {
                     console.log('用户点击确定');
+                    //先判断胜负
+                    let winType = '';
+                        let one = that.data.session[0]
+                        console.log('one',one)
+                    if (that.data.mewin > that.data.enwin){
+                         winType = 1;
+                         console.log(1)
+                    }else{
+                        console.log()
+                         winType = 0 ;
+                    }
+                    console.log('winType', winType)
                     //调取接口
                     let endData = {};
-                    endData.memberId =
-                        endData.rivalMemberId =
-                        endData.rivalNickName =
-                        endData.rivalImg =
-                        endData.type =
-                        endData.one = this.data.session[0]
-                    endData.two = this.data.session[1]
-                    endData.three = this.data.session[2]
+                    endData.memberId = that.data.member.id;
+                        endData.rivalMemberId = that.data.rival.id;
+                    endData.rivalNickName = that.data.rival.nickName;
+                    endData.rivalImg = that.data.rival.img;
+                        endData.type = winType;
+                        endData.one = that.data.session[0];
+                    endData.two = that.data.session[1];
+                    endData.three = that.data.session[2];
                     app.getApiData({
                         url: '/game/end',
                         method: 'POST',
@@ -173,10 +136,111 @@ Page({
             }
         })
     },
-    scanCode() {
+    getResult() {
+        let that = this,
+            me = this.data.me,
+            enemy = this.data.enemy,
+            session = this.data.session,
+            mewin = this.data.mewin,
+            enwin = this.data.enwin,
+            i = session.length - 1;
+        session[i].me = me;
+        session[i].enemy = enemy;
+
+        if (parseInt(me) > 21 || parseInt(enemy) > 21) {
+            if (Math.abs(parseInt(me) - parseInt(enemy)) != 2) {
+                console.log("分数不符合规则,相差超2");
+            } else {
+                console.log("正确");
+                if (parseInt(me) > parseInt(enemy)) {
+                    mewin++
+                }else{
+                    enwin++
+                }
+                this.setData({
+                    session: session,
+                    me: '',
+                    enemy: '',
+                    mewin: mewin,
+                    enwin: enwin
+                })
+            }
+        } else {
+            if (parseInt(me) == 21 || parseInt(enemy) == 21) {
+                if (parseInt(me) == parseInt(enemy)) {
+                    console.log("分数不符合规则,两人相等");
+                    wx.showToast({
+                        title: '错误:分数相等',
+                        icon: 'loading',
+                        duration: 2000
+                    })
+                } else {
+                    console.log("正确");
+                    if (parseInt(me) > parseInt(enemy)) {
+                        mewin++
+                    }else{
+                        enwin++
+                    }
+                    this.setData({
+                        session: session,
+                        me: '',
+                        enemy: '',
+                        mewin: mewin,
+                        enwin: enwin,
+                    })
+                }
+            } else {
+                console.log("分数不符合规则");
+                wx.showToast({
+                    title: '错误:分数错误',
+                    icon: 'loading',
+                    duration: 2000
+                })
+            }
+        }
+    },
+    //调取扫一扫api(跳转到商铺)
+    sweep: function(res) {
+        // 只允许从相机扫码
+        let that = this;
         wx.scanCode({
-            success: (res) => {
-                console.log(res)
+            onlyFromCamera: true,
+            success: function(res) {
+                console.log("调取成功")
+                console.log(res.path)
+                if (res.path == undefined){
+                    wx.showToast({
+                        title: '二维码有误',
+                        icon: 'loading',
+                        duration: 2000
+                    })
+                }else{
+                let ss = res.path
+                var reg2 = /([^=]+)$/;
+                let id = ss.match(reg2)[1];
+                console.log(id)
+                app.getApiData({
+                    url: '/member/info',
+                    method: 'POST',
+                    data: {
+                        id: id
+                    },
+                    header: 'application/x-www-form-urlencoded',
+                    success: (response) => {
+                        wx.hideLoading();
+                        that.setData({
+                            rival: response.data
+                        })
+                    }
+                })
+                }
+            },
+            fail:function(res){
+                wx.showToast({
+                    title: '二维码有误',
+                    icon: 'loading',
+                    duration: 2000
+                })
             }
         })
     },

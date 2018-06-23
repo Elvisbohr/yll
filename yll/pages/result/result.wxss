@@ -21,6 +21,7 @@
 .userImg{
     width: 200rpx;
     height: 200rpx;
+    border-radius: 100rpx;
     margin-bottom: 18rpx;
 }
 .userName{

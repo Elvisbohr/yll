@@ -1,31 +1,32 @@
 <!--pages/affirm/affirm.wxml-->
 <view class='pages'>
-    <view class='time'>2018.05.06 12:12</view>
+    <view class='time'>{{achievement.playTime}}</view>
     <view class='header flex vc hc'>
         <view class='user'>
-            <image class='userImg' src='../../images/use.png'></image>
-            <view>我的姓名</view>
+            <image class='userImg' src='{{member.img}}'></image>
+            <view>{{member.nickName}}</view>
         </view>
-        <image class='vs' mode='widthFix' src='../../images/vs.png'></image>        
+        <image class='vs' mode='widthFix' src='../../images/vs.png'></image>
         <view class='user'>
-            <image class='userImg' src='../../images/use.png'></image>
-            <view>对手姓名</view>
-        </view>       
+            <image class='userImg' src='{{achievement.rivalImg}}'></image>
+            <view>{{achievement.rivalNickName}}</view>
+
+        </view>
     </view>
     <view class='main'>
-        <block wx:for="{{session}}" wx:key="i">
-        <view class='list flex vc hc'>
-            <view class='session'>第{{index+1}}场</view>
-            <view class='item'>
-                <view >{{item.me}}</view>
-                <image wx:if="{{item.me > item.enemy}}" src='../../images/win.png' class='win'></image>
+        <block wx:for="{{achievement.list}}" wx:key="id">
+            <view class='list flex vc hc'>
+                <view class='session'>第{{index+1}}场</view>
+                <view class='item'>
+                    <view>{{item.myScore}}</view>
+                    <image wx:if="{{item.myScore > item.rivalScore}}" src='../../images/win.png' class='win'></image>
+                </view>
+                <view class='z'>:</view>
+                <view class='item'>
+                    <view>{{item.rivalScore}}</view>
+                    <image wx:if="{{item.myScore < item.rivalScore}}" src='../../images/win.png' class='win'></image>
+                </view>
             </view>
-            <view class='z'>:</view>
-            <view class='item'>
-                <view >{{item.enemy}}</view>
-                <image wx:if="{{item.me < item.enemy}}" src='../../images/win.png' class='win'></image>
-            </view>
-        </view>
         </block>
     </view>
     <button class='endGame' bindtap='endGame'>确认比分无误</button>

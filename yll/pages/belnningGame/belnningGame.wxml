@@ -2,16 +2,16 @@
 <view class='pages'>
     <view class='header flex vc hc'>
         <view class='user'>
-            <image class='userImg' src='../../images/use.png'></image>
-            <view>我的姓名</view>
+            <image class='userImg' src='{{member.img}}'></image>
+            <view>{{member.name}}</view>
         </view>
         <image class='vs' mode='widthFix' src='../../images/vs.png'></image>        
         <view wx:if='{{rival}}' class='user'>
-            <image class='userImg' src='../../images/use.png'></image>
-            <view>对手姓名</view>
+            <image class='userImg' src='{{rival.img}}'></image>
+            <view>{{rival.nickName}}</view>
         </view>
         <view wx:else class='user'>
-            <image bindtap='scanCode' class='userImg' src='../../images/QR.png'></image>
+            <image bindtap='sweep' class='userImg' src='../../images/QR.png'></image>
             <view>扫一扫</view>
         </view>
     </view>
@@ -33,8 +33,8 @@
         </view>
         </block>
         <block wx:if="{{noMore}}">
-        <image wx:if="{{session.length < 4}}" class='add' src='../../images/add.png' bindtap='add'></image>
+        <image wx:if="{{session.length < 3}}" class='add' src='../../images/add.png' bindtap='add'></image>
         </block>
     </view>
-    <button wx:if="{{session.length == 3}}" class='endGame' bindtap='endGame'>结束比赛</button>
+    <button wx:if="{{session.length > 1}}" class='endGame' bindtap='endGame'>结束比赛</button>
 </view>
