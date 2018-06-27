@@ -1,6 +1,7 @@
 <!--pages/login/login.wxml-->
 <view class='pages'>
-<view class='v-modal' >
+    <!-- <view class='v-modal'> -->
         <button class='user' open-type='getUserInfo' bindgetuserinfo='getuserinfo'>点击授权</button>
-    </view>
+    <!-- </view> -->
+    <view class='msg'>授权之后获得最优体验哦~</view>
 </view>

@@ -22,6 +22,7 @@ Page({
             header: 'application/x-www-form-urlencoded',
             success: (response) => {
                 wx.hideLoading();
+                app.globalData.dataList = response.data
                 this.setData({
                     history: response.data,
                     id:options.id

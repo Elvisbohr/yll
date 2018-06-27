@@ -8,7 +8,7 @@
     <view class='achievement'>
         <view class='aHead flex vc hb'>
             <view class='aHeadTit'>成就</view>
-            <navigator url="../myReflection/myReflection?id={{user.id}}" class='aHeadNav'>分享我的成就 ></navigator>
+            <navigator url="../myReflection/myReflection?id={{user.id}}&&openId={{user.openId}}" class='aHeadNav'>分享我的成就 ></navigator>
         </view>
 
         <view class='aCont flex vc'>
@@ -18,7 +18,8 @@
             </view>
             <view class='aContList aContListM'>
                 <view class='aContListTit'>胜率</view>
-                <view class='aContListData'>{{achievement.rate}}%</view>
+                <view class='aContListData' wx:if="{{achievement.rate == 100.00}}">100%</view>
+                <view class='aContListData' wx:else >{{achievement.rate}}%</view>
             </view>
             <view class='aContList'>
                 <view class='aContListTit'>排名</view>
@@ -33,7 +34,7 @@
         </navigator>
         <navigator url='../myMessage/myMessage?id={{user.id}}' class='mineNavList flex vc'>
             <image class='meListIcon' src='../../images/meNavIcon2.png'></image>
-            <view class='relative'>我的消息 <view wx:if="{{isRead.status == 3}}" class='badge'></view></view>
+            <view class='relative'>我的消息 <view wx:if="{{achievement.read}}" class='badge'></view></view>
         </navigator>
         <navigator class='mineNavList flex vc'>
             <image class='meListIcon' src='../../images/meNavIcon3.png'></image>

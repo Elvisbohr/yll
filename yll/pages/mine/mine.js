@@ -13,16 +13,19 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function(options) {
+        const that = this;
         this.setData({
             user: app.globalData.member
         })
-        this.getAchievement()
     },
-    getAchievement(){
+    getAchievement() {
         app.getApiData({
             url: '/my/achievement',
             method: 'POST',
-            data: { id: app.globalData.member.id, openId: app.globalData.openId},
+            data: {
+                id: app.globalData.member.id,
+                openId: app.globalData.openId
+            },
             header: 'application/x-www-form-urlencoded',
             success: (res) => {
                 if (res.status === 200) {
@@ -34,22 +37,25 @@ Page({
             }
         })
     },
-    getRead() {
-        app.getApiData({
-            url: '/my/read',
-            method: 'POST',
-            data: { id: app.globalData.member.id },
-            header: 'application/x-www-form-urlencoded',
-            success: (res) => {
-                if (res.status === 200) {
-                    wx.hideLoading();
-                    this.setData({
-                        isRead: res.data
-                    })
-                }
-            }
-        })
-    },
+    //查看是否有未读消息
+    // getRead() {
+    //     app.getApiData({
+    //         url: '/my/read',
+    //         method: 'POST',
+    //         data: {
+    //             id: app.globalData.member.id
+    //         },
+    //         header: 'application/x-www-form-urlencoded',
+    //         success: (res) => {
+    //             if (res.status === 200) {
+    //                 wx.hideLoading();
+    //                 this.setData({
+    //                     isRead: res.data
+    //                 })
+    //             }
+    //         }
+    //     })
+    // },
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
@@ -61,7 +67,8 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function() {
-        this.getRead()
+        this.getAchievement();
+        // this.getRead();
     },
 
     /**

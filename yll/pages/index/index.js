@@ -5,34 +5,40 @@ Page({
     data: {
         // user: false,
         initiator: false,
-        inviteeImg:'',
+        inviteeImg: '',
+        red: ''     //未读消息
     },
     onLoad: function() {
         const that = this;
-        //同步获取本地缓存里存入的用户是否保存过个人信息
-        wx.getStorage({
-            key: 'openid',
-            success: function(res) {
-                console.log(res.data.has)
-                if(!res.data.has){
-                    wx.navigateTo({
-                        url: '../login/login',
-                    })
-                }
+       
+    },
+    onShow: function() {
+        const that = this;
+        app.toLogin().then(function(res) {
+            var member = wx.getStorageSync('member')
+            if (member == '') {
+                console.log('未保存')
+                that.tapinfo();
+            } else {
+                app.globalData.member = member
                 that.setData({
-                    member: res.data.member,
+                    member: member
                 })
+                let id = app.globalData.member.id
+                console.log(id)
+                that.createWebsocket(id)
             }
-        });
-
-     
+        })
+        
     },
     //点击跳转到发起比赛页
     initiate() {
         app.getApiData({
             url: '/game/start',
             method: 'POST',
-            data: { openId: app.globalData.openId },
+            data: {
+                openId: app.globalData.openId
+            },
             header: 'application/x-www-form-urlencoded',
             success: (response) => {
                 wx.hideLoading();
@@ -41,15 +47,79 @@ Page({
                 })
             }
         })
-        
+
     },
-    
+
     //点击'我的二维码'
     invitee() {
-        this.setData({
-            inviteeImg: app.globalData.inviteeImg,            
-            invitee: !this.data.invitee,
+        let that = this;
+        // 用户二维码
+        app.getApiData({
+            url: '/member/show',
+            method: 'POST',
+            data: {
+                openId: that.data.member.openId
+            },
+            header: 'application/x-www-form-urlencoded',
+            success: (response) => {
+                wx.hideLoading();
+                console.log('二维码', response)
+                this.setData({
+                    inviteeImg: response.data,
+                    invitee: !this.data.invitee,
+                })
+                app.globalData.inviteeImg = response.data
+            }
+        })
+
+    },
+    tapinfo: function() {
+        const that = this;
+        //同步存入的用户个人信息
+        app.getApiData({
+            url: '/my/info',
+            method: 'POST',
+            data: {
+                openId: app.globalData.openId
+            },
+            header: 'application/x-www-form-urlencoded',
+            success: (response) => {
+                wx.hideLoading();
+                app.globalData.member = response.data;
+                this.setData({
+                    member: response.data
+                });
+                wx.setStorageSync('member', response.data); //本地存储
+                let id = app.globalData.member.id
+                
+                that.createWebsocket(id)                
+            }
+        })
+
+    },
+    // 建立websocket连接
+    createWebsocket: function (id) {
+        let that = this;
+        wx.connectSocket({
+            //   url: 'wss://challenge.djfy365.com/challenge-api/myHandler?info=' + key,
+            url: 'ws://192.168.1.189:8080/badminton/myHandler?info='+id,
+            // header: {
+            //   'Sec-WebSocket-Protocol': this._protocols    //need add this
+            // },
+            // protocols: this._protocols,
+            success: res => {
+                console.log('连接成功');
+            }
+        })
+        // 监听通道打开，第一次传递个人信息
+        wx.onSocketOpen(function (res) {
+            console.log(res);
+        })
+        wx.onSocketMessage(function (res) {
+            console.log('收到服务器内容：' + res.data)
+            that.setData({
+                red: res.data
+            })
         })
     },
-    
 })

@@ -21,23 +21,55 @@ Page({
             success: (response) => {
                 wx.hideLoading();
                 this.setData({
-                    achievement: response.data
+                    achievement: response.data,
+                    id: options.id
                 })
             }
         })
-        wx.getStorage({
-            key: 'openid',
-            success: function (res) {
-                console.log(res.data)
-                that.setData({
-                    member:res.data.member,
-                })
-            }
+     
+        var member = wx.getStorageSync('member')
+        that.setData({
+            member: member
         })
+        that.getRead(options.id)
     },
-    endGame() {
-        wx.navigateTo({
-            url: '../result/result?id=' + this.data.achievement.id,
+    endGame(e) {
+        console.log(e)
+        app.getApiData({
+            url: '/game/affirm',
+            method: 'POST',
+            data: { id: this.data.id, formId: e.detail.formId},
+            header: 'application/x-www-form-urlencoded',
+            success: (response) => {
+                wx.hideLoading();
+                // wx.navigateTo({
+                //     url: '../result/result?id=' + this.data.achievement.id,
+                // })
+                wx.switchTab({
+                    url: '../index/index'
+                })
+            }
+        })
+        
+    },
+    // 确认比赛
+    getRead(e) {
+        console.log(e)
+        app.getApiData({
+            url: '/my/read',
+            method: 'POST',
+            data: {
+                id: e
+            },
+            header: 'application/x-www-form-urlencoded',
+            success: (res) => {
+                if (res.status === 200) {
+                    wx.hideLoading();
+                    this.setData({
+                        isRead: res.data
+                    })
+                }
+            }
         })
     },
     /**

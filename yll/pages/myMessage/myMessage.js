@@ -28,7 +28,7 @@ Page({
             }
         })
     },
-    mesNav(e) {
+    rivalData(e) {
         console.log(e)
         let id = e.currentTarget.dataset.id
         app.getApiData({

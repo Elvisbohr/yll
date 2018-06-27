@@ -5,11 +5,11 @@
             <navigator url='../affirm/affirm?id={{item.id}}' bindtap='mesNav' data-id='{{item.id}}' class='list flex vc hb'>
                 <view class='left flex vc'>
                     <view class='user'>
-                        <image class='userImg' src='{{item.rivalImg}}'></image>
-                        <view wx:if="{{status == 2}}" class='noread'></view>
+                        <image class='userImg' src='{{item.img}}'></image>
+                        <view wx:if="{{item.status == 3}}" class='noread'></view>
                     </view>
                     <view class='xq'>
-                        <view class='name'>{{item.rivalNickName}}</view>
+                        <view class='name'>{{item.nickName}}</view>
                         <view class='new'>向您发送一条确认消息</view>
                     </view>
                 </view>

@@ -60,10 +60,10 @@
 					"query": "id=4"
 				},
 				{
-					"id": -1,
+					"id": 4,
 					"name": "发起比赛",
 					"pathName": "pages/belnningGame/belnningGame",
-					"query": ""
+					"query": "id=4&name=纯白的黑&img=https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTJLO8sDKqvtrrGTRZeVMe4zWlibl4n7rLw5nic19XadrCNBTdxRyMPib1UxzhCB6icaB7ibg2gGB6VicHzQ/132"
 				},
 				{
 					"id": 5,
@@ -82,6 +82,18 @@
 					"name": "确认比赛",
 					"pathName": "pages/resultGame/resultGame",
 					"query": "id=12"
+				},
+				{
+					"id": -1,
+					"name": "授权",
+					"pathName": "pages/login/login",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "授权",
+					"pathName": "pages/login/login",
+					"query": ""
 				}
 			]
 		}

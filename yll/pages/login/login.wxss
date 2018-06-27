@@ -7,8 +7,19 @@
     color: #fff;
     background: #fdd835;
     position: absolute;
-    top: 50%;
+    top: 30%;
     left: 50%;
     z-index: 2888;
     transform: translate(-50%,-50%)
+}
+.msg{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 2888;
+    transform: translate(-50%,-50%);
+    font-size: 40rpx;
+    color: #626262;
+    width: 100%;
+    text-align: center;
 }

@@ -2,7 +2,7 @@
 <view class='pages'>
     <view class='main'>
         <block wx:for="{{history}}">
-            <navigator url='/pages/result/result?id={{id}}' class='list flex vc'>
+            <navigator url='/pages/result/result?id={{id}}&&index={{index}}' class='list flex vc'>
                 <view class='vs'>VS</view>
                 <image class='userImg' src='{{item.rivalImg}}'></image>
                 <view class='xq'>

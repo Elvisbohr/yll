@@ -2,7 +2,7 @@
 <view class='pages'>
     <view class='box'>
         <navigator url='../myMessage/myMessage?id={{member.id}}' class='inform'>待确认的比赛
-            <view class='d'></view>
+            <view wx:if="{{red == 'red'}}" class='d'></view>
         </navigator>
         <view class='initiator'>
             <image bindtap='initiate' class='inImg' src='../../images/initiator.png'></image>

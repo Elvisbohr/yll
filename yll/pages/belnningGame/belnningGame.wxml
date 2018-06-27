@@ -15,18 +15,18 @@
             <view>扫一扫</view>
         </view>
     </view>
-    <view class='main'>
+     <view class='main' wx:if='{{rival}}'> 
         <block wx:for="{{session}}" wx:key="i">
         <view class='list flex vc hc'>
             <view class='session'>第{{index+1}}场</view>
             <view class='item'>
-                <input wx:if="{{item.me == ''}}" maxlength="2" type="number" bindblur="meData"></input>
+                <input wx:if="{{item.me == ''}}" maxlength="2" type="number" bindblur="meData" value='{{me}}'></input>
                 <view wx:else>{{item.me}}</view>
                 <image wx:if="{{item.me > item.enemy}}" src='../../images/win.png' class='win'></image>
             </view>
             <view class='z'>:</view>
             <view class='item'>
-                <input wx:if="{{item.enemy == ''}}"  maxlength="2" type="number" value='{{item.enemy}}' bindblur="enemyData"></input>
+                <input wx:if="{{item.enemy == ''}}"  maxlength="2" type="number" value='{{enemy}}' bindblur="enemyData"></input>
                 <view wx:else>{{item.enemy}}</view>
                 <image wx:if="{{item.me < item.enemy}}" src='../../images/win.png' class='win'></image>
             </view>
@@ -36,5 +36,7 @@
         <image wx:if="{{session.length < 3}}" class='add' src='../../images/add.png' bindtap='add'></image>
         </block>
     </view>
-    <button wx:if="{{session.length > 1}}" class='endGame' bindtap='endGame'>结束比赛</button>
+    <block wx:if="{{rival&&session.length  != 2}}">
+    <button  class='endGame' bindtap='endGame'>结束比赛</button>
+    </block>
 </view>

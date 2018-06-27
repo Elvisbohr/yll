@@ -19,7 +19,7 @@ Page({
             method: 'POST',
             data: {
                 id: options.id,
-                openId: app.globalData.openid
+                openId: options.openId
             },
             header: 'application/x-www-form-urlencoded',
             success: (res) => {
@@ -27,6 +27,7 @@ Page({
                     wx.hideLoading();
                     this.setData({
                         id: options.id,
+                        openId: options.openId,
                         achievement: res.data
                     })
                 }
@@ -36,13 +37,14 @@ Page({
     onShareAppMessage: res => {
         console.log('ads',res)
         let id = res.target.dataset.id 
+        let openId = res.target.dataset.openId 
         if (res.from === 'button') {
             // 来自页面内转发按钮
             console.log('asda', res.target)
         }
         return {
             title: '我的成就',
-            path: '/pages/myReflection/myReflection?id='+id
+            path: '/pages/myReflection/myReflection?id=' + id + '&openId' + openId
         }
     },
     /**

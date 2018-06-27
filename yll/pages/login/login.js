@@ -13,7 +13,7 @@ Page({
       console.log('用户信息', e.detail.userInfo)
       wx.setStorageSync('userInfo', e.detail.userInfo); //本地存储userID 
       let data = {};
-      data.openId = app.globalData.openid;
+      data.openId = app.globalData.openId;
       data.nickName = e.detail.userInfo.nickName;
       data.img = e.detail.userInfo.avatarUrl;
       this.saveUser(data);

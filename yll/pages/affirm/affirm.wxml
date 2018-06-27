@@ -29,5 +29,7 @@
             </view>
         </block>
     </view>
-    <button class='endGame' bindtap='endGame'>确认比分无误</button>
+    <form  bindsubmit='endGame' report-submit='true'>
+    <button formType="submit" class='endGame'>确认比分无误</button>
+    </form>
 </view>
