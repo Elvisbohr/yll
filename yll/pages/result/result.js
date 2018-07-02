@@ -79,7 +79,7 @@ Page({
         }
         return {
             title: '自定义转发标题',
-            path: '/pages/result/result?id=' + id
+            path: '/pages/shareGame/shareGame?id=' + id
         }
 
     }

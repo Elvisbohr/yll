@@ -16,7 +16,8 @@ Page({
         const that = this;
         app.toLogin().then(function(res) {
             var member = wx.getStorageSync('member')
-            if (member == '') {
+            console.log('member', member)
+            if (member == '' || member == null || member == undefined) {
                 console.log('未保存')
                 that.tapinfo();
             } else {
@@ -30,6 +31,15 @@ Page({
             }
         })
         
+    },
+    // 页面卸载
+    onHide: function () {
+        console.log('WebSocket 已关闭！')
+        wx.closeSocket();
+        wx.stopBackgroundAudio();
+        wx.onSocketClose(function (res) {
+            console.log('WebSocket 已关闭！')
+        })
     },
     //点击跳转到发起比赛页
     initiate() {
@@ -101,8 +111,8 @@ Page({
     createWebsocket: function (id) {
         let that = this;
         wx.connectSocket({
-            //   url: 'wss://challenge.djfy365.com/challenge-api/myHandler?info=' + key,
-            url: 'ws://192.168.1.189:8080/badminton/myHandler?info='+id,
+            // url: 'ws://192.168.1.189:8080/badminton/myHandler?info=' + id,
+            url: 'wss://www.yulele.club/badminton/myHandler?info='+id,
             // header: {
             //   'Sec-WebSocket-Protocol': this._protocols    //need add this
             // },
@@ -122,4 +132,5 @@ Page({
             })
         })
     },
+    
 })

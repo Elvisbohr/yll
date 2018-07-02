@@ -51,7 +51,7 @@
 					"id": 2,
 					"name": "历史比赛",
 					"pathName": "pages/historyMatch/historyMatch",
-					"query": "id=4"
+					"query": "id=2"
 				},
 				{
 					"id": 3,
@@ -72,10 +72,10 @@
 					"query": "id=12"
 				},
 				{
-					"id": -1,
+					"id": 6,
 					"name": "比赛结果",
 					"pathName": "pages/result/result",
-					"query": ""
+					"query": "id =2"
 				},
 				{
 					"id": 7,
@@ -94,6 +94,12 @@
 					"name": "授权",
 					"pathName": "pages/login/login",
 					"query": ""
+				},
+				{
+					"id": 10,
+					"name": "分享后页面",
+					"pathName": "pages/shareGame/shareGame",
+					"query": "id=1"
 				}
 			]
 		}

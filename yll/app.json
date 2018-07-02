@@ -11,6 +11,7 @@
     "pages/result/result",
     "pages/login/login",
     "pages/text/text",
+    "pages/shareGame/shareGame",        
     "pages/logs/logs"
   ],
   "tabBar": {

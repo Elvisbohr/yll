@@ -36,9 +36,9 @@
             <image class='meListIcon' src='../../images/meNavIcon2.png'></image>
             <view class='relative'>我的消息 <view wx:if="{{achievement.read}}" class='badge'></view></view>
         </navigator>
-        <navigator class='mineNavList flex vc'>
+        <!-- <navigator class='mineNavList flex vc'>
             <image class='meListIcon' src='../../images/meNavIcon3.png'></image>
             <view>反馈</view>
-        </navigator>
+        </navigator> -->
     </view>
 </view>

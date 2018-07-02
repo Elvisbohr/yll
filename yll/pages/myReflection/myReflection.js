@@ -13,7 +13,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function(options) {
-        console.log(options)
+        console.log('options', options)
         app.getApiData({
             url: '/my/achievement',
             method: 'POST',
@@ -37,14 +37,14 @@ Page({
     onShareAppMessage: res => {
         console.log('ads',res)
         let id = res.target.dataset.id 
-        let openId = res.target.dataset.openId 
+        let openId = res.target.dataset.openid 
         if (res.from === 'button') {
             // 来自页面内转发按钮
-            console.log('asda', res.target)
+            console.log('asda', openId)
         }
         return {
             title: '我的成就',
-            path: '/pages/myReflection/myReflection?id=' + id + '&openId' + openId
+            path: '/pages/myReflection/myReflection?id=' + id + '&openId=' + openId
         }
     },
     /**

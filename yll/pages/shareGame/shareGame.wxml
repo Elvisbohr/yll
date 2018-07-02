@@ -1,22 +1,21 @@
-<!--pages/result/result.wxml-->
-<!--pages/affirm/affirm.wxml-->
+<!--pages/shareGame/shareGame.wxml-->
 <view class='pages'>
-    <view class='time'>{{achievement.playTime}}</view>
+    <view class='time'>{{shareGame.playTime}}</view>
     <view class='header flex vc hc'>
         <view class='user'>
-            <image class='userImg' src='{{member.img}}'></image>
-            <view>{{member.nickName}}</view>
-            <navigator url='../myReflection/myReflection?id={{member.id}}&openId={{member.openId}}' class='look'>查看成就 ></navigator>
+            <image class='userImg' src='{{shareGame.img}}'></image>
+            <view>{{shareGame.nickName}}</view>
+            <!-- <navigator url='../myReflection/myReflection?id={{shareGame.id}}&openId={{member.openId}}' class='look'>查看成就 ></navigator> -->
         </view>
         <image class='vs' mode='widthFix' src='../../images/vs.png'></image>
         <view class='user'>            
-            <image class='userImg' src='{{achievement.rivalImg}}'></image>
-            <view>{{achievement.rivalNickName}}</view>
-            <navigator url='../myReflection/myReflection?id={{achievement.rivalMemberId}}&openId={{achievement.rivalOpenId}}' class='look'>查看成就 ></navigator>
+            <image class='userImg' src='{{shareGame.rivalImg}}'></image>
+            <view>{{shareGame.rivalNickName}}</view>
+            <!-- <navigator url='../myReflection/myReflection?id={{achievement.rivalMemberId}}&openId={{achievement.rivalOpenId}}' class='look'>查看成就 ></navigator> -->
         </view>
     </view>
     <view class='main'>
-        <block wx:for="{{achievement.list}}" wx:key="id">
+        <block wx:for="{{shareGame.list}}" wx:key="id">
         <view class='list flex vc hc'>
             <view class='session'>第{{index+1}}场</view>
             <view class='item'>
@@ -31,5 +30,5 @@
         </view>
         </block>
     </view>
-    <button class='endGame' data-id='{{achievement.id}}' open-type='share' bindtap='endGame'>分享这场比赛</button>
+    <navigator open-type="switchTab" url='../index/index' class='endGame'>返回首页</navigator>
 </view>

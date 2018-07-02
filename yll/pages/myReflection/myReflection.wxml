@@ -13,7 +13,8 @@
             </view>  
             <view class='msgList flex vc hc column'>
                 <view class='listName'>胜率</view>
-                <view class='listData'>{{achievement.rate}}%</view>
+                <view class='listData' wx:if="{{achievement.rate == 100.00}}">100%</view>
+                <view class='listData' wx:else>{{achievement.rate}}%</view>
             </view> 
             <view class='msgList flex vc hc column'>
                 <view class='listName'>排名</view>

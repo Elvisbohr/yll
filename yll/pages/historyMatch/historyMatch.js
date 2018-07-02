@@ -6,27 +6,79 @@ Page({
      * 页面的初始数据
      */
     data: {
-        result: false
+        result: false,
+        pageNum: 1,
+        pageSize: 10,
+        moreTit: '加载更多'
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function(options) {
+        let that = this;
+        let data = {};
+        data.id = options.id
+        data.pageNum = that.data.pageNum;
+        data.pageSize = that.data.pageSize;
+        that.getMerchantList(data);
+        that.setData({
+            id: options.id,
+            pageH: app.globalData.pageH
+        })
+    },
+    //加载更多接口
+    loadMore: function() {
+        var that = this,
+            pageNum = that.data.pageNum,
+            data = {};
+        if (that.data.pageAll) {
+            console.log('月数据')
+            pageNum += 1;
+            data.pageNum = pageNum;
+            data.pageSize = that.data.pageSize
+            data.id = that.data.id
+            that.setData({
+                pageNum: pageNum,
+            })
+            that.getMerchantList(data);
+
+        } else {
+            console.log('无数据')
+            that.setData({
+                moreTit: '暂无更多',
+            })
+        }
+    },
+    getMerchantList: function(data) {
+        var that = this;
         app.getApiData({
             url: '/my/history',
             method: 'POST',
-            data: {
-                id: options.id
-            },
+            data: data,
             header: 'application/x-www-form-urlencoded',
             success: (response) => {
                 wx.hideLoading();
-                app.globalData.dataList = response.data
-                this.setData({
-                    history: response.data,
-                    id:options.id
-                })
+                if (that.data.pageNum > 1) {
+                    console.log('分页调取列表')
+                    let history = that.data.history;
+                    for (var i = 0; i < response.data.list.length; i++) {
+                        history.push(response.data.list[i]);
+                    }
+                    that.setData({
+                        pageAll: response.data.hasNextPage,
+                        history: history,
+                    })
+
+                } else {
+                    console.log('初次调取列表')
+                    that.setData({
+                        pageAll: response.data.hasNextPage,
+                        history: response.data.list,
+                    })
+                }
+                app.globalData.dataList = response.data.list //存入全局
+
             }
         })
     },

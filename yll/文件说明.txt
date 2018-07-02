@@ -8,3 +8,4 @@ belnningGame============>开始比赛
 resultGame============>比赛结果
 affirm      确认比赛
 result      比赛结果
+shareGame   分享比赛(转发之后页)

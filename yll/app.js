@@ -1,7 +1,9 @@
 //app.js
 App({
     globalData: {
-        apiUrl: 'http://192.168.1.189:8080/badminton',
+        // apiUrl: 'http://192.168.1.189:8080/badminton',
+        // apiUrl: 'http://39.108.88.109/badminton',
+        apiUrl: 'https://www.yulele.club/badminton',
         phoneNumber: 13000000000
     },
     onLaunch: function() {
