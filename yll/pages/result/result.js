@@ -78,7 +78,7 @@ Page({
 
         }
         return {
-            title: '自定义转发标题',
+            title: '羽乐乐',
             path: '/pages/shareGame/shareGame?id=' + id
         }
 
