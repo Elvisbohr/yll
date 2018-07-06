@@ -22,5 +22,6 @@
             </view>  
         </view>
     </view>
-    <button class='fxbtn' data-id='{{id}}' data-openId='{{openId}}' open-type='share' >分享成就</button>
+    <button wx:if="{{isShare}}" class='fxbtn' data-id='{{id}}' data-openId='{{openId}}' open-type='share' >分享成就</button>
+     <navigator wx:else  open-type="switchTab" url='../index/index' class='backbtn'>返回首页</navigator>
 </view>

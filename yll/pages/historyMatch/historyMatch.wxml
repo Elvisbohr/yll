@@ -3,12 +3,14 @@
     <view class='main'>
         <scroll-view scroll-y="true" bindscrolltolower="loadMore" style='height:{{pageH}}px'>
             <block wx:for="{{history}}">
-                <navigator url='/pages/result/result?id={{id}}&&index={{index}}' class='list flex vc'>
+                <navigator url='/pages/result/result?id={{id}}&&index={{index}}' class='list flex vc hb'>
+                    <view class='flex vc '>
                     <view class='vs'>VS</view>
                     <image class='userImg' src='{{item.rivalImg}}'></image>
-                    <view class='xq'>
+                    <view class='xq '>
                         <view class='name'>{{item.rivalNickName}}</view>
                         <view class='time'>{{item.playTime}}</view>
+                    </view>
                     </view>
                     <view class='result'>
                         <view wx:if="{{item.type == 1}}" class='s'>胜</view>

@@ -33,7 +33,8 @@ Page({
     },
     //记录我自己输入的数据
     meData(e) {
-        let me = parseInt(e.detail.value)
+        let me = parseInt(e.detail.value),
+        that = this;
         console.log(1, me)
         if (e.detail.value != '') {
             this.setData({
@@ -41,20 +42,22 @@ Page({
             })
         }
 
-        if (e.detail.value != '' && this.data.enemy != '') {
+        if (e.detail.value != '' && that.data.enemy && that.data.enemy != '') {
             this.getResult()
         }
     },
     //记录对手输入的数据
     enemyData(e) {
-        let enemy = parseInt(e.detail.value)
+        let enemy = parseInt(e.detail.value),
+        that = this;
         console.log(2, enemy)
         if (e.detail.value != '') {
             this.setData({
                 enemy: enemy,
             });
         }
-        if (e.detail.value != '' && this.data.me != '') {
+        if (e.detail.value != '' && that.data.me && that.data.me != '') {
+            console.log('q', that.data.me)
             this.getResult()
         }
 
@@ -109,6 +112,8 @@ Page({
         wx.showModal({
             title: '比赛结束',
             content: '结束比赛并发送比分待对手确认',
+            cancelText: "否",
+            confirmText: "是",
             success: function(res) {
                 if (res.confirm) {
                     console.log('用户点击确定');

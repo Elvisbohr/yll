@@ -14,6 +14,17 @@ Page({
      */
     onLoad: function(options) {
         console.log('options', options)
+        let that = this;
+        console.log('optionstype', options.type)        
+        if(options.type == 1){
+            that.setData({
+                isShare: false,                
+            })
+        }else{
+            that.setData({
+                isShare: true,
+            })
+        }
         app.getApiData({
             url: '/my/achievement',
             method: 'POST',
@@ -44,7 +55,7 @@ Page({
         }
         return {
             title: '我的成就',
-            path: '/pages/myReflection/myReflection?id=' + id + '&openId=' + openId
+            path: '/pages/myReflection/myReflection?id=' + id + '&openId=' + openId + '&type=1'
         }
     },
     /**

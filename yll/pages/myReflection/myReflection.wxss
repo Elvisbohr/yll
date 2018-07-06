@@ -1,56 +1,80 @@
 /* pages/myReflection/myReflection.wxss */
-.pages{
+
+.pages {
     color: #212121;
 }
-.head{
+
+.head {
     height: 230rpx;
 }
-.uesrImg{
+
+.uesrImg {
     width: 160rpx;
     height: 160rpx;
     border-radius: 80rpx;
     margin: 0 40rpx;
 }
-.userName{
+
+.userName {
     font-size: 36rxp;
 }
-.title{
+
+.title {
     font-size: 48rpx;
     padding-left: 40rpx;
 }
-.msg{
-  margin-top: 48rpx;
+
+.msg {
+    margin-top: 48rpx;
 }
-.msgList{
-  width: 200rpx;
-  height: 200rpx;
-  border-radius: 100rpx;
-  border: 1px solid #7d7d7d;
-  margin-left: 35rpx;
+
+.msgList {
+    width: 200rpx;
+    height: 200rpx;
+    border-radius: 100rpx;
+    border: 1px solid #7d7d7d;
+    margin-left: 35rpx;
 }
-.msgList:first-of-type{
-  margin-left: 0
+
+.msgList:first-of-type {
+    margin-left: 0;
 }
-.listName{
-  color: #878787;
-  font-size: 28rpx;
+
+.listName {
+    color: #878787;
+    font-size: 28rpx;
 }
-.listData{
-  font-size: 48rpx;
-  font-weight: bold;
-  margin-top: 12rpx;
+
+.listData {
+    font-size: 48rpx;
+    font-weight: bold;
+    margin-top: 12rpx;
 }
-.fxbtn{
-  width: 700rpx;
-  height: 88rpx;
-  line-height: 88rpx;
-  border-radius: 44rpx;
-  border: 1px solid #fdd835;
-  font-size: 36rpx;
-  color: #fff;
-  background: #fdd835;
-  position: fixed;
-  bottom: 40rpx;
-  left: 50%;
-  transform: translateX(-50%)
+
+.fxbtn {
+    width: 90%;
+    height: 88rpx;
+    line-height: 88rpx;
+    border-radius: 44rpx;
+    font-size: 36rpx;
+    color: #fff;
+    background: #fdd835;
+    position: fixed;
+    bottom: 40rpx;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.backbtn {
+    width: 90%;
+    height: 88rpx;
+    line-height: 88rpx;
+    border-radius: 44rpx;
+    background: #fdd835;
+    color: #fff;
+    font-size: 36rpx;
+    text-align: center;
+    position: absolute;
+    bottom: 38rpx;
+    left: 5%;
 }

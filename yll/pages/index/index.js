@@ -61,8 +61,12 @@ Page({
     },
 
     //点击'我的二维码'
-    invitee() {
+    invitee:function() {
         let that = this;
+        let img = app.globalData.inviteeImg;
+        console.log('img', img)
+        if(img == undefined){
+            console.log('初次调用二维码')
         // 用户二维码
         app.getApiData({
             url: '/member/show',
@@ -74,14 +78,20 @@ Page({
             success: (response) => {
                 wx.hideLoading();
                 console.log('二维码', response)
-                this.setData({
+                that.setData({
                     inviteeImg: response.data,
-                    invitee: !this.data.invitee,
+                    invitee: !that.data.invitee,
                 })
                 app.globalData.inviteeImg = response.data
             }
         })
-
+        }else{
+            console.log('再次调用二维码')
+            that.setData({
+                inviteeImg: img,
+                invitee: !that.data.invitee,
+            })
+        }
     },
     tapinfo: function() {
         const that = this;
@@ -100,8 +110,7 @@ Page({
                     member: response.data
                 });
                 wx.setStorageSync('member', response.data); //本地存储
-                let id = app.globalData.member.id
-                
+                let id = app.globalData.member.id                
                 that.createWebsocket(id)                
             }
         })
@@ -130,6 +139,24 @@ Page({
             that.setData({
                 red: res.data
             })
+            if(res.data == 'red'){
+                wx.showModal({
+                    title: '待确认的比赛',
+                    content: '是否查看待确认的比赛?',
+                    cancelText: "否",
+                    confirmText: "是",
+                    success: function (res) {
+                        if (res.confirm) {
+                            console.log('用户点击确定')
+                            wx.navigateTo({
+                                url: '../myMessage/myMessage?id=' + that.data.member.id
+                            })
+                        } else if (res.cancel) {
+                            console.log('用户点击取消')
+                        }
+                    }
+                })
+            }
         })
     },
     

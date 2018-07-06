@@ -44,11 +44,13 @@
     line-height: 64rpx;
     text-align: center;
     border-bottom: 1px solid #212121;
+    font-size: 48rpx;
     position: relative;
 }
 .item input{
     width: 100%;
-    height: 100%
+    height: 100%;
+    font-size: 48rpx;
 }
 .z{
     font-size: 60rpx;

@@ -60,6 +60,7 @@
     line-height: 64rpx;
     text-align: center;
     border-bottom: 1px solid #212121;
+    font-size: 48rpx;
     position: relative;
 }
 .item input{
