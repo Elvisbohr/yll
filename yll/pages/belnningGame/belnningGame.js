@@ -81,13 +81,13 @@ Page({
             if (session[i].me == '' && session[i].enemy == '') {
                 wx.showToast({
                     title: '成绩不能为空',
-                    icon: 'loading',
+                    icon: 'none',
                     duration: 2000
                 })
             } else if (session[i].me == session[i].enemy) {
                 wx.showToast({
-                    title: '成绩不能相等',
-                    icon: 'loading',
+                    title: '输入的分数不符合规则',
+                    icon: 'none',
                     duration: 2000
                 })
             } else {
@@ -208,7 +208,7 @@ Page({
                                 data: that.data.session
                             })
                             wx.switchTab({
-                                url: '../mine/mine',
+                                url: '../index/index',
                                 success: function(res) {
                                     console.log('跳转到我的页面');
                                 }
@@ -240,8 +240,8 @@ Page({
             if (Math.abs(parseInt(me) - parseInt(enemy)) != 2) {
                 console.log("分数不符合规则,相差超2");
                 wx.showToast({
-                    title: '分数不正确',
-                    icon: 'loading',
+                    title: '输入的分数不符合规则',
+                    icon: 'none',
                     duration: 2000
                 })
                 this.setData({
@@ -268,8 +268,8 @@ Page({
                 if (parseInt(me) == parseInt(enemy)) {
                     console.log("分数不符合规则,两人相等");
                     wx.showToast({
-                        title: '错误:分数相等',
-                        icon: 'loading',
+                        title: '输入的分数不符合规则',
+                        icon: 'none',
                         duration: 2000
                     })
                     this.setData({
@@ -294,8 +294,8 @@ Page({
             } else {
                 console.log("分数不符合规则");
                 wx.showToast({
-                    title: '错误:分数错误',
-                    icon: 'loading',
+                    title: '输入的分数不符合规则',
+                    icon: 'none',
                     duration: 2000
                 })
                 this.setData({
@@ -317,7 +317,7 @@ Page({
                 if (res.path == undefined) {
                     wx.showToast({
                         title: '二维码有误',
-                        icon: 'loading',
+                        icon: 'none',
                         duration: 2000
                     })
                 } else {
@@ -342,11 +342,12 @@ Page({
                 }
             },
             fail: function(res) {
-                wx.showToast({
-                    title: '二维码有误',
-                    icon: 'loading',
-                    duration: 2000
-                })
+                // wx.showToast({
+                //     title: '二维码有误',
+                //     icon: 'none',
+                //     duration: 2000
+                // })
+                console.log('用户取消扫码')
             }
         })
     },

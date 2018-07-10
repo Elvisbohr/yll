@@ -7,7 +7,12 @@
 }
 .user{
     text-align: center;
+    font-size: 36rpx;
     overflow: hidden;
+}
+.sys{
+    font-size: 30rpx;
+    color: #878787;
 }
 .userImg{
     width: 200rpx;

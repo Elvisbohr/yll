@@ -1,7 +1,7 @@
 <!--pages/historyMatch/historyMatch.wxml-->
 <view class='pages'>
     <view class='main'>
-        <scroll-view scroll-y="true" bindscrolltolower="loadMore" style='height:{{pageH}}px'>
+        <scroll-view class='scroll' scroll-y="true" bindscrolltolower="loadMore">
             <block wx:for="{{history}}">
                 <navigator url='/pages/result/result?id={{id}}&&index={{index}}' class='list flex vc hb'>
                     <view class='flex vc '>

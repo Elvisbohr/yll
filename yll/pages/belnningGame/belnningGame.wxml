@@ -12,7 +12,7 @@
         </view>
         <view wx:else class='user'>
             <image bindtap='sweep' class='userImg' src='../../images/QR.png'></image>
-            <view>扫一扫</view>
+            <view class='sys'>扫一扫</view>
         </view>
     </view>
      <view class='main' wx:if='{{rival}}'> 

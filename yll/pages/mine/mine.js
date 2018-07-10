@@ -19,19 +19,19 @@ Page({
         })
     },
     getAchievement() {
-        app.getApiData({
-            url: '/my/achievement',
+        wx.request({
+            url: app.globalData.apiUrl + '/my/achievement',
             method: 'POST',
             data: {
                 id: app.globalData.member.id,
                 openId: app.globalData.openId
             },
-            header: 'application/x-www-form-urlencoded',
+            header: { 'content-type': 'application/x-www-form-urlencoded' },
             success: (res) => {
-                if (res.status === 200) {
-                    wx.hideLoading();
+                if (res.data.status === 200) {
+                    // wx.hideLoading();
                     this.setData({
-                        achievement: res.data
+                        achievement: res.data.data
                     })
                 }
             }
@@ -99,10 +99,14 @@ Page({
 
     },
 
-    /**
-     * 用户点击右上角分享
-     */
-    onShareAppMessage: function() {
-
+    onShareAppMessage: function (res) {
+        if (res.from === 'button') {
+            // 来自页面内转发按钮
+            console.log(res.target)
+        }
+        return {
+            title: '羽乐乐',
+            path: '/page/index/index'
+        }
     }
 })

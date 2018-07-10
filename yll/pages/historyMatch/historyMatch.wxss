@@ -1,46 +1,60 @@
 /* pages/historyMatch/historyMatch.wxss */
-.pages{
+
+.pages {
     color: #212121;
     overflow-x: hidden;
 }
-.main{
-  margin: 0 40rpx;
+
+.main {
+    height: 100%;
+    margin: 0 40rpx;
 }
-.list{
-  height: 152rpx;
-  border-bottom: 1px solid #ebebeb;
+.scroll{
+    height: 100%;
 }
-.vs{
-  font-size: 32rpx;
+.list {
+    height: 152rpx;
+    border-bottom: 1px solid #ebebeb;
 }
-.userImg{
-  width: 110rpx;
-  height: 110rpx;
-  border-radius: 55rpx;
-  margin-left: 24rpx;
+
+.vs {
+    font-size: 32rpx;
 }
-.xq{
-  margin-left: 40rpx;
-   justify-content: flex-start;
+
+.userImg {
+    width: 110rpx;
+    height: 110rpx;
+    border-radius: 55rpx;
+    margin-left: 24rpx;
 }
-.name{
-  font-size: 32rpx;
-  text-align: left;
+
+.xq {
+    margin-left: 40rpx;
+    justify-content: flex-start;
 }
-.time{
-  font-size: 26rpx;
-  color: #878787;
-  text-align: left;
-  margin-top: 24rpx;
+
+.name {
+    font-size: 32rpx;
+    text-align: left;
 }
-.result{
-  font-size: 48rpx;
-  font-weight: bold;
-  margin-left: 110rpx;
+
+.time {
+    font-size: 26rpx;
+    color: #878787;
+    text-align: left;
+    margin-top: 24rpx;
 }
-.s{
-  color: #ff5974;
+
+.result {
+    font-size: 48rpx;
+    font-weight: bold;
+    margin-left: 110rpx;
 }
-.f{
-  color: #3333ff;
+
+.s {
+    color: #ff5974;
+}
+
+.f {
+    color: #33f;
 }
